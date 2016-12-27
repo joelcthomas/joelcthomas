@@ -1,0 +1,55 @@
+{ 
+  "nodes": [ 
+    { "id": 0, "name": "matlab", "group": 1, "radius": 60, "width": 80, "height": 80, "color": "#E6F5FF" },
+    { "id": 1, "name": "comsol1", "group": 1, "radius": 50, "width": 120, "height": 120, "color": "#E6F5FF" },
+    { "id": 2, "name": "opencv", "group": 1, "radius": 50, "width": 70, "height": 70, "color": "#E6F5FF" },
+    { "id": 3, "name": "cpp", "group": 1, "radius": 50, "width": 70, "height": 70, "color": "#E6F5FF" },
+
+    { "id": 4, "name": "html5", "group": 2, "radius": 50, "width": 80, "height": 80, "color": "#CCEBFF" },
+    { "id": 5, "name": "jquery", "group": 2, "radius": 50, "width": 80, "height": 80, "color": "#CCEBFF" },
+    { "id": 6, "name": "css", "group": 2, "radius": 50, "width": 70, "height": 70, "color": "#CCEBFF" },
+    { "id": 7, "name": "d3", "group": 2, "radius": 50, "width": 55, "height": 55, "color": "#CCEBFF" },
+    { "id": 8, "name": "js", "group": 2, "radius": 50, "width": 70, "height": 70, "color": "#CCEBFF" },
+    { "id": 9, "name": "svg", "group": 2, "radius": 50, "width": 80, "height": 80, "color": "#CCEBFF" },
+
+    { "id": 10, "name": "R", "group": 3, "radius": 50, "width": 60, "height": 60, "color": "#B2E0FF" },
+    { "id": 11, "name": "pandas", "group": 3, "radius": 50, "width": 110, "height": 140, "color": "#B2E0FF" },
+    { "id": 12, "name": "spss", "group": 3, "radius": 50, "width": 70, "height": 70, "color": "#B2E0FF" },
+    { "id": 13, "name": "jmp", "group": 3, "radius": 50, "width": 80, "height": 80, "color": "#B2E0FF" },
+    { "id": 14, "name": "numpy", "group": 3, "radius": 50, "width": 180, "height": 60, "color": "#B2E0FF" },
+    { "id": 15, "name": "scikitlearn", "group": 3, "radius": 50, "width": 80, "height": 80, "color": "#B2E0FF" },
+    { "id": 16, "name": "jupyter", "group": 3, "radius": 50, "width": 80, "height": 80, "color": "#B2E0FF" },
+
+    { "id": 17, "name": "mysql", "group": 4, "radius": 50, "width": 85, "height": 85, "color": "#99D6FF" },
+    { "id": 18, "name": "mssql", "group": 4, "radius": 50, "width": 85, "height": 85, "color": "#99D6FF" },
+    { "id": 19, "name": "oracle", "group": 4, "radius": 50, "width": 85, "height": 85, "color": "#99D6FF" },
+
+    { "id": 20, "name": "redhat", "group": 5, "radius": 50, "width": 120, "height": 120, "color": "#BAE3FF" },
+    { "id": 21, "name": "centos", "group": 5, "radius": 50, "width": 120, "height": 120, "color": "#BAE3FF" },
+    { "id": 22, "name": "aws", "group": 5, "radius": 50, "width": 120, "height": 120, "color": "#BAE3FF" },
+
+    { "id": 23, "name": "perl", "group": 6, "radius": 50, "width": 80, "height": 80, "color": "#80CCFF" },
+    { "id": 24, "name": "php", "group": 6, "radius": 50, "width": 80, "height": 80, "color": "#80CCFF" },
+    { "id": 25, "name": "python", "group": 6, "radius": 50, "width": 135, "height": 135, "color": "#80CCFF" },
+    { "id": 26, "name": "java", "group": 6, "radius": 50, "width": 80, "height": 80, "color": "#80CCFF" },
+    { "id": 27, "name": "git", "group": 6, "radius": 50, "width": 80, "height": 80, "color": "#80CCFF" },
+    { "id": 28, "name": "jira", "group": 6, "radius": 50, "width": 80, "height": 80, "color": "#80CCFF" },
+
+    { "id": 29, "name": "hadoop2", "group": 7, "radius": 60, "width": 110, "height": 110, "color": "#66C2FF" },
+    { "id": 30, "name": "hbase", "group": 7, "radius": 50, "width": 100, "height": 100, "color": "#66C2FF" },
+    { "id": 31, "name": "hive1", "group": 7, "radius": 50, "width": 80, "height": 80, "color": "#66C2FF" },
+    { "id": 32, "name": "spark", "group": 7, "radius": 50, "width": 80, "height": 80, "color": "#66C2FF" },
+    { "id": 33, "name": "mllib", "group": 7, "radius": 50, "width": 90, "height": 90, "color": "#66C2FF" },
+    { "id": 34, "name": "mapreduce", "group": 7, "radius": 50, "width": 140, "height": 140, "color": "#66C2FF" },
+    { "id": 35, "name": "neo4j", "group": 7, "radius": 50, "width": 120, "height": 120, "color": "#66C2FF" }
+  ],
+  "nodesDescription":{
+  "1":"Scientific Computation, Simulations, Image Processing, etc.",
+  "2":"Data Visualization & Web UI",
+  "3":"Statistical Computation, Predictive Analytics & Machine Learning",
+  "4":"Databases",
+  "5":"Server OS & Architecture",
+  "6":"Programming Languages & Code Management",
+  "7":"Big Data Storage & Analytics, Graph Analytics, Machine Learning."
+  }
+}
