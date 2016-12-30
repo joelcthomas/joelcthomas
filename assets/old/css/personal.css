@@ -16,7 +16,7 @@
 
 .firstSection{
 	background:AliceBlue;
-	background: url('../images/jct_background.png');
+	background: url('/assets/old/images/jct_background.png');
 }
 #firstSectionHeader{
 	font-size: 2.0em;
@@ -36,7 +36,7 @@
 
 .thirdSection{
 	background:AliceBlue;
-	background: url('../images/jct_background.png');
+	background: url('/assets/old/images/jct_background.png');
 }
 #thirdSectionHeader{
 	font-size: 2.0em;

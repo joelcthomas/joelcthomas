@@ -156,7 +156,7 @@ function drawHistory(){
 				y=(($("#graphHistory").height()*(1/2))+d.y1+180);
 				var textWidth=(x2-x1)*0.7;
 				var image = svg.append("svg:image")
-					.attr("xlink:href", "https://joelcthomas.com/images/history/"+d.name+".png")
+					.attr("xlink:href", "https://joelcthomas.com/assets/images/history/"+d.name+".png")
 					.attr("x", x)
 					.attr("y", y)
 					.attr("width", widthCalc(d.width)+"px")
@@ -705,7 +705,7 @@ function drawGraphSkills(nodes){
 			.enter().append("svg:image")
 			.attr("class", "skillsImage")
 			.attr("class", function(d) { return "skillsImage skillsImageGroup"+d.group; })
-			.attr("xlink:href", function(d) { return "https://joelcthomas.com/images/skills/"+d.name+".png"; })
+			.attr("xlink:href", function(d) { return "https://joelcthomas.com/assets/images/skills/"+d.name+".png"; })
 			.attr("width", function(d) { return widthCalc(d.width)+"px";})
 			.attr("height", function(d) { return widthCalc(d.height)+"px";});
 
