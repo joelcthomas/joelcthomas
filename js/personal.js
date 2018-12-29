@@ -31,19 +31,19 @@ $(document).ready(function(){
 		    	drawGraphSkills(skillsNode);
 		    });
 		}
-		// $("#emailIcon").attr('title','hello'+' @ '+'joelcthomas.com');
-		// emailToolTip();
+		$(".email").attr('title','hello'+' @ '+'joelcthomas.com');
+		emailToolTip();
 	});
 });
 function emailToolTip(){
-	$("#emailIcon").tooltip({
+	$(".email").tooltip({
 		position: {
 			my: "center bottom-20",
 			at: "center top",
 			using: function( position, feedback ) {
 				$(this).css(position);
 				$("<div>")
-					.addClass( "arrow" )
+					.addClass( "email-info" )
 					.addClass( feedback.vertical )
 					.addClass( feedback.horizontal )
 					.appendTo( this );
