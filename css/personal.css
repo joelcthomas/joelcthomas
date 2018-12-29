@@ -1,4 +1,4 @@
-#header{
+/* #header{
 	padding: 1em 0 1em 0;
 }
 #header > header{
@@ -16,7 +16,7 @@
 
 .firstSection{
 	background:AliceBlue;
-	background: url('../images/jct_background.png');
+	background: url('/assets/images/jct_background.png');
 }
 #firstSectionHeader{
 	font-size: 2.0em;
@@ -36,13 +36,13 @@
 
 .thirdSection{
 	background:AliceBlue;
-	background: url('../images/jct_background.png');
+	background: url('/assets/images/jct_background.png');
 }
 #thirdSectionHeader{
 	font-size: 2.0em;
 	font-weight: 100;
 	margin-bottom: 0;
-}
+} */
 
 
 /*D3 Styles*/
@@ -128,11 +128,11 @@ text.anchortext2hover{
 }
 
 
-#graphHistoryD3 line{
-	/*color: #FFF;
+/* #graphHistoryD3 line{
+	color: #FFF;
 	fill: #FFF;
-	stroke: #FFF;*/
-}
+	stroke: #FFF;
+} */
 #graphHistoryD3 line.anchorline{
 	color: #555;
 	fill: #555;
@@ -185,50 +185,50 @@ text.anchortext2hover{
 }
 
 /*Tooltip*/
-.ui-tooltip, .arrow:after {
+/* .ui-tooltip, .arrow:after {
     background: #38A5C9;
     border: 1px solid white;
 }
-  .ui-tooltip {
-    padding: 10px 20px;
-    color: white;
-    border-radius: 0px;
-    font: 14px "Roboto", Sans-Serif;
-    box-shadow: 0 0 0px #38A5C9;
-  }
-  .arrow {
-    width: 70px;
-    height: 16px;
-    overflow: hidden;
-    position: absolute;
-    left: 50%;
-    margin-left: -35px;
-    bottom: -16px;
-  }
-  .arrow.top {
-    top: -16px;
-    bottom: auto;
-  }
-  .arrow.left {
-    left: 20%;
-  }
-  .arrow:after {
-    content: "";
-    position: absolute;
-    left: 20px;
-    top: -20px;
-    width: 25px;
-    height: 25px;
-    box-shadow: 6px 5px 9px -9px #38A5C9;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-  }
-  .arrow.top:after {
-    bottom: -20px;
-    top: auto;
-  }
-  div.ui-tooltip {
-    max-width: 250px;
-    text-align:center;
+.ui-tooltip {
+padding: 10px 20px;
+color: white;
+border-radius: 0px;
+font: 14px "Roboto", Sans-Serif;
+box-shadow: 0 0 0px #38A5C9;
 }
+.arrow {
+width: 70px;
+height: 16px;
+overflow: hidden;
+position: absolute;
+left: 50%;
+margin-left: -35px;
+bottom: -16px;
+}
+.arrow.top {
+top: -16px;
+bottom: auto;
+}
+.arrow.left {
+left: 20%;
+}
+.arrow:after {
+content: "";
+position: absolute;
+left: 20px;
+top: -20px;
+width: 25px;
+height: 25px;
+box-shadow: 6px 5px 9px -9px #38A5C9;
+-webkit-transform: rotate(45deg);
+-ms-transform: rotate(45deg);
+transform: rotate(45deg);
+}
+.arrow.top:after {
+bottom: -20px;
+top: auto;
+}
+div.ui-tooltip {
+max-width: 250px;
+text-align:center;
+} */
