@@ -159,6 +159,10 @@ input:-webkit-autofill:focus {
     box-shadow: 3px 3px 5px 0 rgba(0, 0, 0, 0.1);
 }
 
+.story-text {
+    font-size: initial;
+}
+
 /**
 *Default Background Class
 **/
@@ -366,7 +370,8 @@ input:-webkit-autofill:focus {
 
 .client-area,
 .header-area {
-    background: #38A5C9 url('images/parallax-2-hide.jpg') no-repeat scroll center center / cover;
+    background: #38A5C9;
+    /* background: #38A5C9 url('images/parallax-2-hide.jpg') no-repeat scroll center center / cover; */
 }
 
 .anlge-bg {
