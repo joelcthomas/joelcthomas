@@ -24,7 +24,7 @@ $(document).ready(function(){
 			aboutMeGraphShown=1;
 			drawGraphAboutMe();
 		}
-		if($(window).scrollTop()+$(window).height()>$("#graphSkills").offset().top && skillsGraphShown==0){
+		if($(window).scrollTop()+$(window).height()>$("#graph-skills").offset().top && skillsGraphShown==0){
 			skillsGraphShown=1;
 			d3.json("files/skills.json", function(json) {
 		    	skillsNode=json.nodes;
@@ -613,9 +613,10 @@ function drawGraphAboutMe(){
 }
 
 function drawGraphSkills(nodes){
-	var width = $('#graphSkills').width(), height = (function(){
+	var width = $('#graph-skills').width(), height = (function(){
+			console.log()
 			if($( window ).width()>700){return 600;}
-			else{return 600-((700-$(window ).width())/2);}
+			else{return 600+((700-$(window ).width()));}
 		})();
 
 	var fill = d3.scale.category10();
@@ -636,18 +637,18 @@ function drawGraphSkills(nodes){
 	var forceSkills = d3.layout.force()
 		.nodes(nodes)
 		.size([width, height])
-		.gravity(.02)
-		.charge(0)
+		.charge(-800)
+		.gravity(.2)
 		.on("tick", tickSkills)
 		.start();
 
 	var timeoutID;
 
-	$("#graphSkillsD3").remove();
+	$("#graph-skills-d3").remove();
 
-	var svg = d3.select('#graphSkills').append("svg")
+	var svg = d3.select('#graph-skills').append("svg")
 		.attr("class", "image featured")
-		.attr("id","graphSkillsD3")
+		.attr("id","graph-skills-d3")
 		.attr("width", width)
 		.attr("height", height)
 		.append("g")
@@ -656,7 +657,7 @@ function drawGraphSkills(nodes){
 	var circle = svg.selectAll("circle")
 		.data(nodes)
 		.enter().append("circle")
-		.attr("class", "skillsCircle")
+		.attr("class", "skills-circle")
 		.attr("r", function(d) {
 			return circleRadCalc(d.radius);
 		})
@@ -664,10 +665,10 @@ function drawGraphSkills(nodes){
 			cancelRestoreImgOpacity();
 			for(var i=1;i<=groups.length;i++){
 				if(i==d.group){
-					$(".skillsImageGroup"+d.group).css('opacity','1');
-					$("#graphSkillsDesc").html(skillsNodeDesc[d.group]+"<br>");
+					$(".skills-image-group"+d.group).css('opacity','1');
+					$("#graph-skills-desc").html(skillsNodeDesc[d.group]+"<br>");
 				}else{
-					$(".skillsImageGroup"+i).css('opacity','0.1');
+					$(".skills-image-group"+i).css('opacity','0.1');
 				}
 			};
 		})
@@ -684,8 +685,8 @@ function drawGraphSkills(nodes){
 			.selectAll("g")
 			.data(forceSkills.nodes())
 			.enter().append("svg:image")
-			.attr("class", "skillsImage")
-			.attr("class", function(d) { return "skillsImage skillsImageGroup"+d.group; })
+			.attr("class", "skills-image")
+			.attr("class", function(d) { return "skills-image skills-image-group"+d.group; })
 			.attr("xlink:href", function(d) { return "/images/skills/"+d.name+".png"; })
 			.attr("width", function(d) { return widthCalc(d.width)+"px";})
 			.attr("height", function(d) { return widthCalc(d.height)+"px";});
@@ -707,14 +708,14 @@ function drawGraphSkills(nodes){
 			.style("stroke", groupFill)
 			.style("stroke-width", 40)
 			.style("stroke-linejoin", "round")
-			.style("opacity", 0.08)
+			.style("opacity", 0.20)
 			.attr("d", groupPath);
 	}
 
 	function restoreImgOpacity(){
-		$("#graphSkillsDesc").html("<br>");
+		$("#graph-skills-desc").html("<br>");
 		for(var i=1;i<=groups.length;i++){
-			$(".skillsImageGroup"+i).css('opacity','1');
+			$(".skills-image-group"+i).css('opacity','1');
 		};
 	}
 	function cancelRestoreImgOpacity(){
