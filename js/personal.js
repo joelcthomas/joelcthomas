@@ -54,6 +54,7 @@ function emailToolTip(){
 function drawHistory(){
 	var width = $("#graphHistory").width(),
 		height = 600,
+		scaleYear = 20,
 		historyData;
 	var hoverarea=[];
 
@@ -84,9 +85,9 @@ function drawHistory(){
 		$.each(historyData, function(i,d) {
 			// Main lines
 			if(d.group!="anchor"&&d.group!="anchor2"&&d.group!="scale"){
-				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
+				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
 				y1=(($("#graphHistory").height()*(1/2))+d.y1);
-				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/16));
+				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/scaleYear));
 				y2=(($("#graphHistory").height()*(1/2))+d.y2);
 				appendLine(x1,y1,x2,y2,d.id,d.width,d.strokestyle,d.color);
 				if(d.group=="emphasis"||d.group=="learn"){
@@ -97,9 +98,9 @@ function drawHistory(){
 
 			//Scale
 			if(d.group=="scale"){
-				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
+				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
 				y1=(($("#graphHistory").height()*(1/10))+d.y1);
-				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/16));
+				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/scaleYear));
 				y2=(($("#graphHistory").height()*(1/10))+d.y2);
 				appendLine(x1,y1,x2,y2,"",d.width,d.strokestyle,d.color);
 				var text=svg.append("text")
@@ -116,23 +117,23 @@ function drawHistory(){
 
 			// Separating lines
 			if(d.group=="mainaxis"){
-				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
+				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
 				y1=(($("#graphHistory").height()*(1/2))+d.y1-7);
-				x2=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
+				x2=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
 				y2=(($("#graphHistory").height()*(1/2))+d.y1+7);
 				appendLine(x1,y1,x2,y2,"",2,"",d.color);
 
-				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
+				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
 				y1=(($("#graphHistory").height()*(1/2))+d.y1-7+180);
-				x2=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
+				x2=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
 				y2=(($("#graphHistory").height()*(1/2))+d.y1+7+180);
 				appendLine(x1,y1,x2,y2,"",2,"",d.color);
 			}
 
 			//Add Main Axis Image
 			if(d.group=="image"){
-				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
-				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/16));
+				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
+				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/scaleYear));
 				x=x1+(x2-x1)/2;
 				y=(($("#graphHistory").height()*(1/2))+d.y1+180);
 				var textWidth=(x2-x1)*0.7;
@@ -148,9 +149,9 @@ function drawHistory(){
 			// Add pointing anchor lines
 			if(d.group=="anchor"){
 				//Vertical line
-				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
+				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
 				y1=(($("#graphHistory").height()*(1/2))+d.y1);
-				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/16));
+				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/scaleYear));
 				y2=(($("#graphHistory").height()*(1/2))+d.y2);
 				appendLine(x1,y1,x2,y2,d.id,d.width,d.strokestyle,d.color);
 
@@ -189,9 +190,9 @@ function drawHistory(){
 			}
 			if(d.group=="anchor2"){
 				//Vertical line
-				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/16));
+				x1=(($("#graphHistory").width()/2)+(d.x1*$("#graphHistory").width()/scaleYear));
 				y1=(($("#graphHistory").height()*(1/2))+d.y1);
-				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/16));
+				x2=(($("#graphHistory").width()/2)+(d.x2*$("#graphHistory").width()/scaleYear));
 				y2=(($("#graphHistory").height()*(1/2))+d.y2);
 
 				//Arrow head
@@ -250,10 +251,12 @@ function drawHistory(){
 				selectedArea='ProcessEngg';
 			}else if(posx>hoverarea['SystemsEngineer_x1']&&posx<=hoverarea['SystemsEngineer_x2']){
 				selectedArea='SystemsEngineer';
-			}else if(posx>hoverarea['DataScientist_x1']&&posx<=hoverarea['DataScientist_x2']){
-				selectedArea='DataScientist';
+			}else if(posx>hoverarea['SeniorDataScientist_x1']&&posx<=hoverarea['SeniorDataScientist_x2']){
+				selectedArea='SeniorDataScientist';
+			}else if(posx>hoverarea['PrincipalDataScientist_x1']&&posx<=hoverarea['PrincipalDataScientist_x2']){
+				selectedArea='PrincipalDataScientist';
 			}
-			var allTextElements=svg.selectAll("text[id=Infosys],text[id=StatisticalAnalyst],text[id=ResearchAssistant],text[id=MicronIntern],text[id=ProcessEngg],text[id=SystemsEngineer],text[id=DataScientist]");
+			var allTextElements=svg.selectAll("text[id=Infosys],text[id=StatisticalAnalyst],text[id=ResearchAssistant],text[id=MicronIntern],text[id=ProcessEngg],text[id=SystemsEngineer],text[id=SeniorDataScientist],text[id=PrincipalDataScientist]");
 			allTextElements.attr("class","anchortext");
 			allTextElements=svg.selectAll("text[id=Sathyabama],text[id=UniversityOfHouston],text[id=ContinousLearn]");
 			allTextElements.attr("class","anchortext2");
@@ -268,7 +271,7 @@ function drawHistory(){
 			}else if(posx>hoverarea['ContinousLearn_x1']&&posx<=hoverarea['ContinousLearn_x2']){
 				selectedArea='ContinousLearn';
 			}
-			var allTextElements=svg.selectAll("text[id=Infosys],text[id=StatisticalAnalyst],text[id=ResearchAssistant],text[id=MicronIntern],text[id=ProcessEngg],text[id=SystemsEngineer],text[id=DataScientist]");
+			var allTextElements=svg.selectAll("text[id=Infosys],text[id=StatisticalAnalyst],text[id=ResearchAssistant],text[id=MicronIntern],text[id=ProcessEngg],text[id=SystemsEngineer],text[id=SeniorDataScientist],text[id=PrincipalDataScientist]");
 			allTextElements.attr("class","anchortext");
 			allTextElements=svg.selectAll("text[id=Sathyabama],text[id=UniversityOfHouston],text[id=ContinousLearn]");
 			allTextElements.attr("class","anchortext2");
@@ -278,13 +281,13 @@ function drawHistory(){
 			hoverTextElement.attr("class",anchortexthover);
 		}
 
-		var allLineElements=svg.selectAll("line[id=Infosys],line[id=StatisticalAnalyst],line[id=ResearchAssistant],line[id=MicronIntern],line[id=ProcessEngg],line[id=SystemsEngineer],line[id=DataScientist],line[id=Sathyabama],line[id=UniversityOfHouston],line[id=ContinousLearn]");
+		var allLineElements=svg.selectAll("line[id=Infosys],line[id=StatisticalAnalyst],line[id=ResearchAssistant],line[id=MicronIntern],line[id=ProcessEngg],line[id=SystemsEngineer],line[id=SeniorDataScientist],line[id=PrincipalDataScientist],line[id=Sathyabama],line[id=UniversityOfHouston],line[id=ContinousLearn]");
 		allLineElements.attr("class","anchorline");
 
 		var hoverLineElement=svg.selectAll("line[id="+selectedArea+"]");
 		hoverLineElement.attr("class","anchorlinehover");
 
-		allLineElements=svg.selectAll("line[id=ML_Infosys],line[id=ML_StatisticalAnalyst],line[id=ML_ResearchAssistant],line[id=ML_MicronIntern],line[id=ML_ProcessEngg],line[id=ML_SystemsEngineer],line[id=ML_DataScientist]");
+		allLineElements=svg.selectAll("line[id=ML_Infosys],line[id=ML_StatisticalAnalyst],line[id=ML_ResearchAssistant],line[id=ML_MicronIntern],line[id=ML_ProcessEngg],line[id=ML_SystemsEngineer],line[id=ML_SeniorDataScientist],line[id=ML_PrincipalDataScientist]");
 		allLineElements.attr("class","workline");
 		allLineElements=svg.selectAll("line[id=ML_Sathyabama],line[id=ML_UniversityOfHouston],line[id=ML_ContinousLearn]");
 		allLineElements.attr("class","learnline");
@@ -361,8 +364,8 @@ function drawHistory(){
 function drawGraphAboutMe(){
 	var smallCircleSize=0;
 	var w = $('#graphAboutMe').width(), h = (function(){
-			if($( window ).width()>700){return 600;}
-			else{return 600-((700-$(window ).width())/2);}
+			if($( window ).width()>700){return 700;}
+			else{return 600+((700-$(window ).width())/2);}
 		})();
     var jsonData;
 
@@ -394,7 +397,7 @@ function drawGraphAboutMe(){
 		.attr('height', h);
 
 	svg.append("defs").selectAll("marker")
-		.data(["math","artist","science","statistics"])
+		.data(["base","art","software","statistics"])
 		.enter().append("marker")
 		.attr("id", function(d) { return d; })
 		.attr("viewBox", "0 -5 10 10")
@@ -415,11 +418,17 @@ function drawGraphAboutMe(){
 				json.nodes[i].x=$("#graphAboutMeD3").width()/2;
 			}else if(json.nodes[i].name=="science"){
 				json.nodes[i].x=($("#graphAboutMeD3").width()/2)-($("#graphAboutMeD3").width()/4);
-			}else if(json.nodes[i].name=="artist"){
+			}else if(json.nodes[i].name=="art"){
 				json.nodes[i].x=($("#graphAboutMeD3").width()/2)+($("#graphAboutMeD3").width()/4);
-			}else if(json.nodes[i].name=="data scientist"){
+			}else if(json.nodes[i].name=="data science"){
+				json.nodes[i].x=($("#graphAboutMeD3").width()/2)+($("#graphAboutMeD3").width()/8);
+				json.nodes[i].y=($("#graphAboutMeD3").height()-75);
+			}else if(json.nodes[i].name=="artificial intelligence"){
+				json.nodes[i].x=($("#graphAboutMeD3").width()/2)-($("#graphAboutMeD3").width()/8);
+				json.nodes[i].y=($("#graphAboutMeD3").height()-75);
+			}else if(json.nodes[i].name=="product development"){
 				json.nodes[i].x=($("#graphAboutMeD3").width()/2);
-				json.nodes[i].y=($("#graphAboutMeD3").height())-100;
+				json.nodes[i].y=($("#graphAboutMeD3").height())*0.40;
 			}
     	};
     	jsonData=json;
@@ -478,8 +487,8 @@ function drawGraphAboutMe(){
 			.attr("x", 0)
 			.attr("dy", ".35em")
 			.attr("font-size",function(){
-				if($( window ).width()>700){return "14px";}
-				else{return "0.65em";}
+				if($( window ).width()>800){return "14px";}
+				else{return "0.85em";}
 			})
 			.text(function(d) { return d.name; });
 
@@ -502,7 +511,7 @@ function drawGraphAboutMe(){
     function linkArc(d) {
     	var dx = d.target.x - d.source.x,
         dy = d.target.y - d.source.y,
-        dr = Math.sqrt(dx * dx + dy * dy)/1.5;
+        dr = Math.sqrt(dx * dx + dy * dy)/0.4;
         if(d.target.x<w/2||d.source.x<w/2){
 	    	return [
 				"M",d.source.x,d.source.y,
@@ -517,7 +526,7 @@ function drawGraphAboutMe(){
 	}
     function circleSize(d){
 		var circleSize=0;
-		if($( window ).width()<700){circleSize=Math.sqrt(d.size) / (10+((700-$( window ).width())/60));}
+		if($( window ).width()<700){circleSize=Math.sqrt(d.size) / (9+((700-$( window ).width())/60));}
 		else{circleSize=Math.sqrt(d.size) / 9;}
 		circleSize=circleSize || 4.5
 		smallCircleSize=1.3*((smallCircleSize==0||smallCircleSize>circleSize)?circleSize:smallCircleSize);
@@ -525,7 +534,7 @@ function drawGraphAboutMe(){
     }
     function circleSizeMouseOver(d){
 		var circleSize=0;
-		if($( window ).width()<700){circleSize=Math.sqrt(d.size) / (10+((700-$( window ).width())/60));}
+		if($( window ).width()<700){circleSize=Math.sqrt(d.size) / (9+((700-$( window ).width())/60));}
 		else{circleSize=Math.sqrt(d.size) / 10;}
 		circleSize=circleSize || 4.5
 		smallCircleSize=1.3*((smallCircleSize==0||smallCircleSize>circleSize)?circleSize:smallCircleSize);
@@ -614,7 +623,6 @@ function drawGraphAboutMe(){
 
 function drawGraphSkills(nodes){
 	var width = $('#graph-skills').width(), height = (function(){
-			console.log()
 			if($( window ).width()>700){return 600;}
 			else{return 600+((700-$(window ).width()));}
 		})();

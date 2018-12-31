@@ -160,7 +160,7 @@ input:-webkit-autofill:focus {
 }
 
 .story-text {
-    font-size: initial;
+    font-size: large;
 }
 
 /**
@@ -319,8 +319,8 @@ input:-webkit-autofill:focus {
 }
 
 .mainmenu-area .logo img {
-    max-width: 45px;
-    height: auto;
+    max-height: 50px;
+    width: auto;
 }
 
 .mainmenu-area #primary-menu > ul > li > a {
@@ -409,7 +409,7 @@ input:-webkit-autofill:focus {
 }
 
 .header-logo {
-    max-width: 260px;
+    max-width: 800px;
     height: auto;
     margin: 20px 0px;
 }

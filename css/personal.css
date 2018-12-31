@@ -3,6 +3,7 @@
 	cursor: pointer;
 	stroke: #38A5C9;
 	stroke-width: 0px;
+	opacity: 0.8;
 }
 
 .nodeText {
@@ -21,17 +22,17 @@
 	stroke-width: 1px;
 }
 
-marker#math {
+marker#base {
   fill: #38A5C9;
 }
-marker#artist {
+marker#art {
   fill: #37DA68;
 }
-marker#science {
-  fill: #FF5A40;
+marker#software {
+  fill: #FFA240;
 }
 marker#statistics {
-  fill: #FFA240;
+  fill: #FF5A40;
 }
 
 .maintext{
